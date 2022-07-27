@@ -12,7 +12,7 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Boulder&limit=1&appid=
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
+    // console.log(data);
   });
 
 // fetch for current weather
