@@ -1,14 +1,34 @@
 h2 {
-  height: 50%;
-}
+  height: 100%;
+};
 
-container.form {
+form {
   border-bottom: solid black;
 };
 
-weatherdisplay {
+#custom-weatherdisplay {
+  min-height: 900px;
+  min-width: 500px;
+  margin-bottom: 500px;
+  background-color: blue !important;
+};
+
+.forecast {
   height: 200px;
   width: 500px;
   margin-bottom: 5%;
+  background-color: blue;
+
+};
+
+#displayboxtitle {
+  font-size: 400em;
 }
 
+.city-search {
+  display: flex;
+}
+
+button {
+  display: block;
+}

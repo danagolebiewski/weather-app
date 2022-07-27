@@ -5,19 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-    />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/style.css"/>
   </head>
 
   <body>
+
     <div>
       <h3
         id="header"
@@ -25,26 +20,83 @@
         Weather Dashboard
       </h3>
     </div>
-    <div class="container row">
-      <div class="formclass col-4 col-sm-6 col-lg-4 p-2">
-        <form class="form border border-dark p-2">
-          <div class="form-group">
-            <label class="font-weight-bold text" for="cityInput">Search for a City</label>
-            <input
-              type="city"
-              class="form-control"
-              id="city"
-              aria-describedby="cityInput"
-              placeholder="Enter city"
-            />
-          </div>
-          <button type="submit" class="btn btn-block btn-primary">Search</button>
-        </form>
+    <div class="container">
+      <div class="row">
+       
+        <div class="formclass col-4 col-sm-6 col-lg-4 p-2">
+          <form class="form border-bottom border-dark p-2">
+            <div class="form-group">
+              <label class="font-weight-bold text" for="cityInput">Search for a City</label>
+              <input
+                type="city"
+                class="form-control"
+                id="city"
+                aria-describedby="cityInput"
+                placeholder="Enter city"
+              />
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Search</button>
+          </form>
+        </div>
+    
+
+        <div id="custom-weatherdisplay" class="col-lg-8 border border-dark min-vh-20">
+            <h3 id="displayboxtitle">
+              Weather Display
+            </h3>
+
+        </div>
+ 
+        <div class="forecast col-8 offset-4 min-vh-50 p-3">
+          <h3>5-day Forecast</h3>
+          <div class="container cards">
+            <div class="row">
+
+              <div class="card col m-1" style="width: 9rem;">
+                <div class="card-body">
+                  <p class="card-title">Temp</p>
+                  <p class="card-subtitle mb-2 text-muted">Card subtitle</p>
+                  <p class="card-text">.</p>
+                </div>
+              </div>
+  
+              <div class="card col m-1" style="width: 18rem;">
+                <div class="card-body">
+                  <p class="card-title">Temp:</p>
+                  <p class="card-subtitle mb-2 text-muted">Card subtitle</p>
+                  <p class="card-text">.</p>
+                </div>
+              </div>
+
+              <div class="card col m-1" style="width: 18rem;">
+                <div class="card-body">
+                  <p class="card-title">Temp:</p>
+                  <p class="card-subtitle mb-2 text-muted">Card subtitle</p>
+                  <p class="card-text">.</p>
+                </div>
+              </div>
+              <div class="card col m-1" style="width: 18rem;">
+                <div class="card-body">
+                  <p class="card-title">Temp:</p>
+                  <p class="card-subtitle mb-2 text-muted">Card subtitle</p>
+                  <p class="card-text">.</p>
+                </div>
+              </div>
+              <div class="card col m-1" style="width: 18rem;">
+                <div class="card-body">
+                  <p class="card-title">Temp:</p>
+                  <p class="card-subtitle mb-2 text-muted">Card subtitle</p>
+                  <p class="card-text">.</p>
+                </div>
+              </div>
+             
+              </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+
       </div>
-      <div class="weatherdisplay border border-dark col-8 p-2">
-        Weather display box
-      </div>
-      <div class="5-day-forecast border border-dark col-8 p-2"></div>
     </div>
 
     <script src="./assets/script.js"></script>
