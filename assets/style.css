@@ -25,3 +25,16 @@ form {
 button {
   display: block;
 }
+
+.flex-parent{
+  display: flex;
+}
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card{
+  min-width: 150px;
+}
