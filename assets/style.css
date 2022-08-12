@@ -11,7 +11,6 @@ form {
   width: 500px; */
   margin-bottom: 5%;
   /* background-color: blue; */
-
 }
 
 #displayboxtitle {
@@ -26,15 +25,31 @@ button {
   display: block;
 }
 
-.flex-parent{
+.flex-parent {
   display: flex;
 }
 
-.cards{
+.cards {
   display: flex;
   flex-wrap: wrap;
 }
 
-.card{
+.card {
   min-width: 150px;
+}
+
+.green{
+  background-color: green;
+}
+.yellow{
+  background-color: yellow;
+}
+.orange {
+  background-color: orange;
+}
+.red {
+  background-color: red;
+}
+.purple {
+  background-color: purple;
 }

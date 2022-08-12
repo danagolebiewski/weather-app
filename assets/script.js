@@ -21,7 +21,7 @@ function apiCall(city) {
       console.log(data);
 
       // check if data.name is in the history array already. If not, add it
-      if (!history.includes(data.name)) {
+      if (data.name && !history.includes(data.name)) {
         history.push(data.name);
         localStorage.setItem("history", JSON.stringify(history));
       }
@@ -54,10 +54,28 @@ function oneCall(lat, lon) {
     })
     .then(function (data) {
       console.log(data);
-
+      var className;
+    //  1-2 Low         (1 - 2.99999)   Green
+    //  3-5 Moderate    (3 - 5.99999)   Yellow 
+    //  6-7 High        (6 - 7.99999)   Orange
+    //  8-10 Very High  (8 - 10.9999)   Red
+    //  11+ Extreme     (11+ )          Purple
+      if (data.current.uvi < 3) { 
+        className = "green";
+      } else if (data.current.uvi < 6) {
+        className = "yellow";
+      } else if (data.current.uvi < 8) {
+        className = "orange";
+      } else if (data.current.uvi < 11) {
+        className = "red";
+      } else {
+        className = "purple";
+      }
+      $("#uvi").addClass(className);
       $("#uvi").text(`UV Index: ${data.current.uvi}`);
 
       for (let index = 1; index <= 5; index++) {
+        event.preventDefault();
         const element = data.daily[index];
         console.log(element);
 
@@ -76,12 +94,6 @@ function oneCall(lat, lon) {
         `;
         document.getElementById("5-day").append(card);
       }
-      // $("#displayboxtitle").text(city);
-      // $("#temp").text(`Temp: ${data.main.temp}`);
-      // $("#wind").text(`Wind: ${data.wind.speed}`);
-      // $("#humidity").text(`Humidity: ${data.main.humidity}`);
-
-      // if we need data from a previous API call we have to WAIT for that data to be returned to us
     });
 }
 
@@ -95,9 +107,6 @@ function handleFormSubmit(event) {
 
 formEl.on("submit", handleFormSubmit);
 
-// Call 5 day forecast, add info to cards,
-// Add search history with active buttons
-// Find UVI with color changing button thingy
 // Add weather indicator symbol
 
 function renderSearchHistory() {
@@ -105,7 +114,7 @@ function renderSearchHistory() {
   document.querySelector(".history-container").innerHTML = "";
   for (let index = 0; index < history.length; index++) {
     var button = document.createElement("button");
-    button.classList.add("btn-block", "btn-primary", "btn");
+    button.classList.add("btn-block", "btn-secondary", "btn");
     button.addEventListener("click", function () {
       apiCall(history[index]);
     });
