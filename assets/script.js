@@ -1,13 +1,9 @@
-// request API key
-
 var API_KEY = "6d3b8741d864862cbcbd38685f847354";
 var formEl = $("#city-form");
 var cityInput = $('input[name="city"]');
 
 const history = JSON.parse(localStorage.getItem("history")) || [];
 renderSearchHistory();
-
-// first try to make an API call with code (you're going to give the values that are needed)
 
 // fetch for current weather
 function apiCall(city) {
@@ -19,7 +15,6 @@ function apiCall(city) {
     })
     .then(function (data) {
       console.log(data);
-
       // check if data.name is in the history array already. If not, add it
       if (data.name && !history.includes(data.name)) {
         history.push(data.name);
@@ -74,8 +69,8 @@ function oneCall(lat, lon) {
       $("#uvi").addClass(className);
       $("#uvi").text(`UV Index: ${data.current.uvi}`);
 
+// 5 day forecast for loop, and add to cards
       for (let index = 1; index <= 5; index++) {
-        event.preventDefault();
         const element = data.daily[index];
         console.log(element);
 
@@ -100,17 +95,13 @@ function oneCall(lat, lon) {
 function handleFormSubmit(event) {
   event.preventDefault();
   var cityName = cityInput.val();
-  // console.log(cityName);
   apiCall(cityName);
-  // fiveDayApiCall(cityName);
 }
 
 formEl.on("submit", handleFormSubmit);
 
-// Add weather indicator symbol
-
+// create search history and add to functional buttons
 function renderSearchHistory() {
-  //do the rendering
   document.querySelector(".history-container").innerHTML = "";
   for (let index = 0; index < history.length; index++) {
     var button = document.createElement("button");

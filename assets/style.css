@@ -7,10 +7,7 @@ form {
 }
 
 .forecast {
-  /* height: 200px;
-  width: 500px; */
   margin-bottom: 5%;
-  /* background-color: blue; */
 }
 
 #displayboxtitle {
@@ -25,6 +22,11 @@ button {
   display: block;
 }
 
+.card-body {
+  background-color: grey;
+  color: white;
+}
+
 .flex-parent {
   display: flex;
 }
@@ -32,6 +34,7 @@ button {
 .cards {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .card {
